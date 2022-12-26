@@ -9,9 +9,7 @@ ENV PYTHONUNBUFFERED 1
 COPY src /app
 WORKDIR /app
 RUN set -eux \
-    && apk add --no-cache --virtual .build-deps build-base \
-    openssl-dev libffi-dev gcc musl-dev python3-dev \
-    && pip install --upgrade pip setuptools wheel \
+    pip install --upgrade pip setuptools wheel \
     && python -m pip install --no-cache-dir --upgrade -r requirements.txt \
     && rm -rf /root/.cache/pip
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
