@@ -6,7 +6,7 @@ EXPOSE 8000
 ENV PYTHONDONTWRITEBYTECODE 1
 # 建议构建 Docker 镜像时一直为 1, 防止 python 缓冲 (buffering) stdout 和 stderr, 以便更容易地进行容器日志记录
 ENV PYTHONUNBUFFERED 1
-COPY ../src /app
+COPY src /app
 WORKDIR /app
 RUN set -eux \
     && apk add --no-cache --virtual .build-deps build-base \
